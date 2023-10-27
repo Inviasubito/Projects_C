@@ -4,7 +4,7 @@
 
 int main()
 {
-    int is_pp = 0;
+    int is_pp = 1;
     int s_length = 0;
     int v = 0;
     
@@ -16,10 +16,7 @@ int main()
         printf("Valore [%d]: \n", i + 1);
         scanf(" %d", &v);
         
-        if(i > 0)
-            is_pp = is_pp && v >= 0 && v % 2 == 0;
-        else
-            is_pp = v >= 0 && v % 2 == 0;
+        is_pp = is_pp && v >= 0 && v % 2 == 0;
     }
     
     if(is_pp)
