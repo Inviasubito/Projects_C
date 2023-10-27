@@ -1,4 +1,13 @@
-//27/10/23
+/************************
+Alessandro Di Roberto
+27/10/23
+
+Scrivere un programma che legge da tastiera una sequenza di numeri interi chiedendo all'utente quanto dovrà essere lunga la sequenza.
+Al termine dell'acquisizione della sequenza il programma dovrà stampare:
+- "OK" se tutti i numeri inseriti sono positivi e pari
+- "KO" in caso contrario
+
+************************/
 
 #include <stdio.h>
 
