@@ -13,13 +13,15 @@ cubo del numero stesso facendo uso soltanto di operazioni di somma.
 int main()
 {
     int v;
-    int sum = 1;
+    int sum = 0;
 
     printf("Numero: ");
     scanf("%d", &v);
 
-    for (int i = 0; i < 3; i++)
-        sum *= v;
+    for (int i = 0; i < v; i++)
+        for (int j = 0; j < v; j++)
+            for (int k = 0; k < v; k++)
+                sum += 1;
 
     printf("Il cubo di %d è %d", v, sum);
 
