@@ -1,7 +1,7 @@
 /******************************************************************************
 
 30/10/23
-Alessandro Di Roberto
+Alessandro Di Rberto
 
 Scrivere un programma che riceve in input due numeri interi e ne scambia il contenuto
 
@@ -12,7 +12,7 @@ int main()
 {
    int a, b, c;
    
-   printf("Inserisci A, B: ");
+   printf("Inserisci i numeri \"A, B\": ");
    scanf("%d, %d", &a, &b);
    
    printf("Prima dello scambio:\n");
