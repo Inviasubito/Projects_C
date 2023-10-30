@@ -1,7 +1,7 @@
 /******************************************************************************
 
 30/10/23
-Alessandro Di ROberto
+Alessandro Di Roberto
 
 Scrivere un programma che riceve in input due numeri interi e ne scambia il contenuto
 
