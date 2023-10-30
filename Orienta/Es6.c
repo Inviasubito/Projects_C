@@ -12,20 +12,16 @@ int main()
 {
    int a, b, c;
    
-   printf("Inserisci A, B: ");
+   printf("Inserisci i numeri \"A, B\": ");
    scanf("%d, %d", &a, &b);
    
-   printf("Prima dello scambio:\n");
-   printf("A: %d \n", a);
-   printf("B: %d \n", b);
+   printf("Prima dello scambio: A: %d , B: %d\n", a, b);
    
    c = a;
    a = b;
    b = c;
    
-   printf("Dopo lo scambio:\n");
-   printf("A: %d \n", a);
-   printf("B: %d \n", b);
+   printf("Dopo lo scambio: A: %d , B: %d\n", a, b);
 
    return 0;
 }
