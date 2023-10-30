@@ -18,6 +18,9 @@ int main()
     printf("Numero: ");
     scanf("%d", &v);
 
+    //for(int i = 0; i < 3; i++)
+    //    sum *= v;
+
     for (int i = 0; i < v; i++)
         for (int j = 0; j < v; j++)
             for (int k = 0; k < v; k++)
