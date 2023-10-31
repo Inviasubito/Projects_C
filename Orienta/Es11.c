@@ -19,6 +19,7 @@ il programma dovrebbe stampare il valore 4.
 
 int GetVowelsNumber_ByStep();
 int GetVowelsNumber_ByString();
+int IsVowels(const char);
 
 int main()
 {
@@ -47,14 +48,8 @@ int GetVowelsNumber_ByString()
 
     for (int i = 0; i < MAX_STRING_LENGTH; i++)
     {
-        if (c[i] == 'a' ||
-            c[i] == 'e' ||
-            c[i] == 'i' ||
-            c[i] == 'o' ||
-            c[i] == 'u')
-        {
+        if (IsVowels(c[i]))
             count++;
-        }
         else if (c[i] == '#')
             break;
     }
@@ -71,18 +66,36 @@ int GetVowelsNumber_ByStep()
     char keys[] = { 'a', 'e', 'i', 'o', 'u' };
     int count = 0;
 
+    printf("Caratteri: ");
+
+    //system("/bin/stty raw");
+
     do
     {
-        printf("Carattere: ");
-        scanf(" %c", &c);
+        c = getchar();
 
-        for (int i = 0; i < 5; i++)
-        {
-            if (c == keys[i])
-                count++;
-        }
+        if (IsVowels(c))
+            count++;
 
     } while (c != '#');
 
+    //system("/bin/stty cooked");
+
     return count;
+}
+
+int IsVowels(const char c)
+{
+    int v = 0;
+
+    if (c == 'a' ||
+        c == 'e' ||
+        c == 'i' ||
+        c == 'o' ||
+        c == 'u')
+    {
+        v = 1;
+    }
+
+    return v;
 }
