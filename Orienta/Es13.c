@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 /******************************************************************************
 
 31/10/23
@@ -14,7 +13,18 @@ come numeri interi tra 1 e 8.
 
 #include <stdio.h>
 
+int SalvoSolution();
+int MainV1();
+int MainV2();
+
 int main()
+{
+    MainV2();
+
+    return 0;
+}
+
+int MainV1()
 {
     int x_k, y_k;
     int x_q, y_q;
@@ -52,7 +62,7 @@ int main()
 }
 
 //Soluzione Salvatore Pappagallo
-int main() 
+int SalvoSolution()
 {
     float kingR, kingC, queenR, queenC, true = 0;
 
@@ -67,23 +77,46 @@ int main()
 
     while (true == 0)
     {
-        if (kingR == queenR) 
+        if (kingR == queenR)
         {
             printf("La Regina ha mangiato il Re!\n");
             true = 1;
         }
 
-        if (kingC == queenC) 
+        if (kingC == queenC)
         {
             printf("La Regina ha mangiato il Re!\n");
             true = 1;
         }
 
-        if (abs(kingR - queenR) / abs(kingC - queenC) == 1.0) 
+        if (abs(kingR - queenR) / abs(kingC - queenC) == 1.0)
         {
             printf("La Regina ha mangiato il Re!\n");
             true = 1;
         }
     }
+    return 0;
+}
+
+//Versione rivista
+int MainV2()
+{
+    int x_k, y_k;
+    int x_q, y_q;
+
+    printf("Inserisci la posizione della Re [\"X, Y\"]:");
+    scanf("%d, %d", &x_k, &y_k);
+
+    printf("Inserisci la posizione della Regina [\"X, Y\"]:");
+    scanf("%d, %d", &x_q, &y_q);
+
+    //H/V
+    if (x_k == x_q ||
+        y_k == y_q ||
+        (abs(x_k - x_q) / abs(y_k - y_q) == 1.0))
+        printf("Scacco matto!");
+    else
+        printf("Ancora in gioco!");
+
     return 0;
 }
