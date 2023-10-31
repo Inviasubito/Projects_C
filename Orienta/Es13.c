@@ -50,3 +50,40 @@ int main()
 
     return 0;
 }
+
+//Soluzione Salvatore Pappagallo
+int main() 
+{
+    float kingR, kingC, queenR, queenC, true = 0;
+
+    printf("Inserisci la riga del Re : ");
+    scanf("%f", &kingR);
+    printf("Inserisci la colonna del Re : ");
+    scanf("%f", &kingC);
+    printf("Inserisci la riga della Regina : ");
+    scanf("%f", &queenR);
+    printf("Inserisci la riga della Regina : ");
+    scanf("%f", &queenC);
+
+    while (true == 0)
+    {
+        if (kingR == queenR) 
+        {
+            printf("La Regina ha mangiato il Re!\n");
+            true = 1;
+        }
+
+        if (kingC == queenC) 
+        {
+            printf("La Regina ha mangiato il Re!\n");
+            true = 1;
+        }
+
+        if (abs(kingR - queenR) / abs(kingC - queenC) == 1.0) 
+        {
+            printf("La Regina ha mangiato il Re!\n");
+            true = 1;
+        }
+    }
+    return 0;
+}
