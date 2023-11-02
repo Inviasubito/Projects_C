@@ -159,6 +159,11 @@ int main2()
 #define M_L 5
 void print(const int m[M_L][M_L]);
 
+void IncrementTop(int m[M_L][M_L], int*, int, int, int*);
+void IncrementRight(int m[M_L][M_L], int, int, int*, int*);
+void IncrementBotton(int m[M_L][M_L], int, int, int*, int, int*);
+void IncrementLeft(int m[M_L][M_L], int, int*, int, int, int*);
+
 int main3()
 {
     int m[M_L][M_L];
@@ -168,29 +173,47 @@ int main3()
 
     while (k <= last_k && l <= last_l)
     {
-        for (int i = l; i <= last_l; i++)
-            m[k][i] = index++;
-        k++;
-
-        for (int i = k; i <= last_k; i++)
-            m[i][last_l] = index++;
-        last_l--;
-
-        if (k <= last_k)
-        {
-            for (int i = last_l; i >= l; i--)
-                m[last_k][i] = index++;
-            last_k--;
-        }
-
-        if (l <= last_l) {
-            for (int i = last_k; i >= k; i--)
-                m[i][l] = index++;
-            l++;
-        }
+        IncrementTop(m, &k, l, last_l, &index);
+        IncrementRight(m, k, last_k, &last_l, &index);
+        IncrementBotton(m, k, l, &last_k, last_l, &index);
+        IncrementLeft(m, k, &l, last_k, last_l, &index);
     }
 
     print(m);
+}
+
+void IncrementTop(int m[M_L][M_L], int* k, int l, int last_l, int* index)
+{
+    for (int i = l; i <= last_l; i++)
+        m[*k][i] = (*index)++;
+    (*k)++;
+}
+
+void IncrementRight(int m[M_L][M_L], int k, int last_k, int* last_l, int* index)
+{
+    for (int i = k; i <= last_k; i++)
+        m[i][*last_l] = (*index)++;
+    (*last_l)--;
+}
+
+void IncrementBotton(int m[M_L][M_L], int k, int l, int* last_k, int last_l, int* index)
+{
+    if (k <= *last_k)
+    {
+        for (int i = last_l; i >= l; i--)
+            m[*last_k][i] = (*index)++;
+        (*last_k)--;
+    }
+}
+
+void IncrementLeft(int m[M_L][M_L], int k, int* l, int last_k, int last_l, int* index)
+{
+    if (*l <= last_l)
+    {
+        for (int i = last_k; i >= k; i--)
+            m[i][*l] = (*index)++;
+        (*l)++;
+    }
 }
 
 void print(const int m[M_L][M_L])
