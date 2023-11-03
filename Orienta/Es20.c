@@ -52,10 +52,11 @@ void es7();
 void es8();
 void es9();
 void es10();
+void es11();
 
 int main()
 {
-	es10();
+	es9();
 	int v;
 
 	printf("Seleziona l'esercizio: ");
@@ -277,6 +278,8 @@ void es7()
 
 void es8()
 {
+	//si poteva usare strstr!
+
 	char str_max[MAX_STRING_LENGTH];
 	char str_min[MAX_STRING_LENGTH];
 
@@ -418,11 +421,64 @@ void es10()
 	{
 		if (str[i] == '\0')
 			v = 1;
-		else if (isblank(str[i]) || str[i] == '\'')
+		else if (isblank(str[i]) || str[i] == '\'') //in questo modo si da per scontato che ci sia un solo blanck
 			w_count++;
 		else
 			avg++;
 	}
 
 	printf("Ci sono %d parole con una media di %f l'una", w_count + 1, (float)(avg / w_count));
+}
+
+void es11()
+{
+	char str[MAX_STRING_LENGTH] = "02.345";
+	float number = 0;
+
+	float decimal = 0;
+	float integer = 0;
+	int h_decimal = 0;
+
+	for (int i = 0; i < MAX_STRING_LENGTH && number >= 0; i++)
+	{
+		int chr = str[i] - 48;
+		if (str[i + 1] != '\0')
+		{
+			if (h_decimal > 0 || str[i] == '.' || str[i] == ',')
+			{
+				h_decimal++;
+
+				float c = (float)(str[i + 1] - 48);
+
+				for (int j = 0; j < h_decimal; j++)
+					c /= 10;
+
+				decimal = c;
+			}
+			else if (chr < 0 || chr > 9)
+			{
+				number = -1;
+			}
+			else
+			{
+				number *= 10;
+
+				float c = (float)(str[i] - 48);
+				integer = c;
+			}
+
+			if (number >= 0)
+			{
+				number += integer + decimal;
+
+				integer = 0;
+				decimal = 0;
+			}
+		}
+	}
+
+	if (number >= 0)
+		printf("Il numero è: %f\n", number);
+	else
+		printf("Errore");
 }
