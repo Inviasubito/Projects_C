@@ -27,11 +27,6 @@ calcola il perimetro del poligono passato
 
 void es1();
 void es2();
-void es3();
-void es4();
-void es5();
-void es6();
-void es7();
 
 int main()
 {
@@ -52,21 +47,6 @@ int main()
 		break;
 	case 2:
 		es2();
-		break;
-	case 3:
-		es3();
-		break;
-	case 4:
-		es4();
-		break;
-	case 5:
-		es5();
-		break;
-	case 6:
-		es6();
-		break;
-	case 7:
-		es7();
 		break;
 	default:
 		printf("Selezione non valida.\n");
@@ -181,29 +161,4 @@ double apotema(struct poligono_t p)
 	double ta = tan(radian);
 
 	return p.lato / (2 * ta);
-}
-
-void es3()
-{
-
-}
-
-void es4()
-{
-
-}
-
-void es5()
-{
-
-}
-
-void es6()
-{
-
-}
-
-void es7()
-{
-
 }
